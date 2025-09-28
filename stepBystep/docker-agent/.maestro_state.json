@@ -1,0 +1,10 @@
+{
+    "agent_name": "docker-agent",
+    "agent_definition_id": "8ecc0c3c-de2d-4485-a0c8-343e35ae399f",
+    "agent_id": "cc8cc268-be67-4eaa-aca8-397ce6b2524f",
+    "docker_image_url": "us-central1-docker.pkg.dev/danta-hackathon/maestro-local/agent-1b35a92b-30a9-4329-bc8d-3296a8ddb24d-8ecc0c3c-de2d-4485-a0c8-343e35ae399f:abc1fb81-1759078049",
+    "service_url": "https://maestro-cc8cc268-be67-4eaa-aca8-397ce6b2524f-zcaxlbuauq-uc.a.run.app",
+    "last_deploy_mode": "unified",
+    "last_deployed_at": "2025-09-28T22:19:00.710625",
+    "deployment_status": "success"
+}
