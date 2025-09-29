@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Topic & Method</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Cinzel', serif; background: linear-gradient(160deg,#d6c6e1,#f3e2f0,#f0e1d8); display:flex; justify-content:center; align-items:center; height:100vh; color:#3b2c35; }
+.card { background: rgba(255,250,240,0.95); border:4px solid #caa15c; border-radius:15px; padding:40px; width:500px; text-align:center; box-shadow:0 0 40px rgba(202,161,92,0.6); }
+h1 { font-family:'IM Fell English SC', serif; font-size:36px; margin-bottom:20px; color:#b76e3f; text-shadow:0 0 6px #ffd580; }
+label { display:block; margin-bottom:5px; font-weight:bold; text-align:left; }
+select { width:100%; padding:10px; margin-bottom:20px; border:2px solid #caa15c; border-radius:8px; font-size:16px; }
+.method-buttons { display:flex; justify-content:space-between; margin-top:20px; }
+button {
+  flex:1; margin:5px; padding:14px 20px; border:2px solid #caa15c; border-radius:10px;
+  font-weight:bold; cursor:pointer; background: linear-gradient(145deg, #b76e3f, #e4c2a0);
+  color:#fffaf5; font-size:16px; transition:0.4s;
+}
+button:hover { background: linear-gradient(145deg, #e4c2a0, #b76e3f); transform: scale(1.05); box-shadow:0 0 20px rgba(202,161,92,0.8); }
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Select Topic & Method</h1>
+<label for="topic">Topic:</label>
+<select id="topic">
+  <option value="">Select topic</option>
+  <option value="Algebra">Algebra</option>
+  <option value="Gravity">Gravity</option>
+  <option value="Loops">Loops</option>
+  <option value="Digestive System">Digestive System</option>
+  <option value="Nouns">Nouns</option>
+  <option value="Freedom Movement">Freedom Movement</option>
+</select>
+
+<p style="font-weight:bold; margin-bottom:5px;">Choose a Study Method:</p>
+<div class="method-buttons">
+  <button onclick="goToMethod('stepByStep')">Step by Step</button>
+  <button onclick="goToMethod('analogy')">Analogy</button>
+  <button onclick="goToMethod('storyTelling')">Storytelling</button>
+</div>
+</div>
+
+<script>
+const studentData = JSON.parse(localStorage.getItem("studentData")||"{}");
+
+function goToMethod(method){
+  const topic = document.getElementById("topic").value;
+  if(!topic){ alert("Select a topic first!"); return; }
+  localStorage.setItem("topic", topic);
+  localStorage.setItem("method", method);
+
+  if(method==="stepByStep") window.location.href="stepByStepmethod.html";
+  else if(method==="analogy") window.location.href="analogMethod.html";
+  else if(method==="storyTelling") window.location.href="storyTelling.html";
+}
+</script>
+</body>
+</html>

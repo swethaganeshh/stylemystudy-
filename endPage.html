@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Knowledge Achieved!</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+<style>
+  body {
+    margin:0; font-family:'Cinzel', serif;
+    background: linear-gradient(160deg,#f0e1d8,#f3e2f0,#d6c6e1);
+    display:flex; justify-content:center; align-items:center; height:100vh; color:#3b2c35;
+  }
+  .card {
+    background: rgba(255,250,240,0.95); border:4px solid #caa15c;
+    border-radius:20px; padding:50px; width:600px; text-align:center;
+    box-shadow:0 0 50px rgba(202,161,92,0.7);
+  }
+  h1 {
+    font-family:'IM Fell English SC', serif; font-size:40px; color:#b76e3f; text-shadow:0 0 8px #ffd580; margin-bottom:20px;
+  }
+  p { font-size:18px; line-height:1.6; margin-bottom:30px; }
+  .buttons { display:flex; justify-content:space-around; margin-top:20px; }
+  button {
+    padding:15px 25px; border:2px solid #caa15c; border-radius:12px;
+    font-weight:bold; cursor:pointer; background: linear-gradient(145deg, #b76e3f, #e4c2a0);
+    color:#fffaf5; font-size:18px; transition:0.4s;
+  }
+  button:hover { background: linear-gradient(145deg, #e4c2a0, #b76e3f); transform: scale(1.05); box-shadow:0 0 25px rgba(202,161,92,0.8); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>✨ Knowledge Achieved! ✨</h1>
+    <p>Congratulations! You've completed this lesson. Your thirst for knowledge can continue or you can start a new adventure.</p>
+    <div class="buttons">
+      <button onclick="goNextTopic()">Quench your curiosity →</button>
+      <button onclick="finish()">🏰 Finish Study</button>
+    </div>
+  </div>
+
+  <script>
+    function goNextTopic() {
+      window.location.href = "frontendpage2.html"; // go back to topic selection page
+    }
+
+    function finish() {
+      localStorage.clear(); // optional: clear previous student data
+      window.location.href = "frontmain.html"; // go to registration page
+    }
+  </script>
+</body>
+</html>

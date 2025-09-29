@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Storytelling Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin:0; font-family:'Cinzel', serif;
+      background: linear-gradient(160deg,#d6c6e1,#f3e2f0,#f0e1d8);
+      display:flex; justify-content:center; align-items:center; height:100vh; color:#3b2c35;
+    }
+    .card {
+      background: rgba(255,250,240,0.95); border:4px solid #caa15c;
+      border-radius:15px; padding:40px; width:600px; text-align:center;
+      box-shadow:0 0 40px rgba(202,161,92,0.6);
+    }
+    h1 { font-family:'IM Fell English SC', serif; font-size:36px; margin-bottom:15px; color:#b76e3f; text-shadow:0 0 6px #ffd580; }
+    .content { text-align:left; margin-top:20px; font-size:16px; line-height:1.6; }
+    .nav-buttons { margin-top:30px; display:flex; justify-content:space-between; }
+    button {
+      padding:10px 20px; border:2px solid #caa15c; border-radius:10px;
+      font-weight:bold; cursor:pointer; background: linear-gradient(145deg, #b76e3f, #e4c2a0);
+      color:#fffaf5; font-size:16px; transition:0.4s;
+    }
+    button:hover { background: linear-gradient(145deg, #e4c2a0, #b76e3f); transform: scale(1.05); box-shadow:0 0 20px rgba(202,161,92,0.8); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Storytelling Learning</h1>
+    <p id="greeting"></p>
+    <div class="content" id="lesson"></div>
+
+    <div class="nav-buttons">
+      <button onclick="goBack()">⬅ Back</button>
+      <button onclick="goNext()">Next ➡</button>
+    </div>
+  </div>
+
+  <script>
+    const studentData = JSON.parse(localStorage.getItem("studentData") || "{}");
+    const topic = localStorage.getItem("topic")?.toLowerCase() || "unknown topic";
+    document.getElementById("greeting").innerText = `Hello ${studentData.nickname}! Let's explore "${topic}" through a story.`;
+
+    const lessons = {
+  "algebra": [
+    "Once upon a time, in a kingdom of numbers, there was a mysterious box called 'x'.",
+    "The wise mathematician had to find what 'x' held by balancing numbers on both sides.",
+    "Finally, 'x' revealed its secret, and peace returned to the kingdom."
+  ],
+  "gravity": [
+    "Long ago, objects fell mysteriously. People wondered why.",
+    "Newton watched an apple fall and realized Earth pulls objects.",
+    "This magical force called gravity rules everything on Earth and beyond."
+  ],
+  "loops": [
+    "In the land of code, a robot had tasks to repeat.",
+    "The robot used loops to perform the same task again and again efficiently.",
+    "By using loops wisely, the robot finished its work perfectly."
+  ],
+  "digestive system": [
+    "A little piece of food went on a journey from mouth to stomach to intestines.",
+    "Along the way, helpful enzymes and juices helped digest it.",
+    "Finally, nutrients reached the body, and waste was safely discarded."
+  ],
+  "nouns": [
+    "In Wordland, every person, place, and thing had a special tag called a noun.",
+    "Some tags were common, like 'book', and some were special, like 'Hogwarts'.",
+    "These tags helped everyone know who or what was being spoken about."
+  ],
+  "freedom movement": [
+    "Once, a country lived under unfair rules.",
+    "Brave leaders inspired people to rise, protest, and march.",
+    "Through courage and unity, the nation finally tasted freedom."
+  ]
+};
+
+
+    const lessonSteps = lessons[topic] || ["Sorry, no storytelling lesson available for this topic."];
+    document.getElementById("lesson").innerHTML = lessonSteps.map(s => `<p>🪄 ${s}</p>`).join('');
+
+    function goBack() { window.history.back(); }
+    function goNext() { window.location.href = "endPage.html"; }
+  </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analogy Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin:0; font-family:'Cinzel', serif;
+      background: linear-gradient(160deg,#d6c6e1,#f3e2f0,#f0e1d8);
+      display:flex; justify-content:center; align-items:center; height:100vh; color:#3b2c35;
+    }
+    .card {
+      background: rgba(255,250,240,0.95); border:4px solid #caa15c;
+      border-radius:15px; padding:40px; width:600px; text-align:center;
+      box-shadow:0 0 40px rgba(202,161,92,0.6);
+    }
+    h1 { font-family:'IM Fell English SC', serif; font-size:36px; margin-bottom:15px; color:#b76e3f; text-shadow:0 0 6px #ffd580; }
+    .content { text-align:left; margin-top:20px; font-size:16px; line-height:1.6; }
+    .nav-buttons { margin-top:30px; display:flex; justify-content:space-between; }
+    button {
+      padding:10px 20px; border:2px solid #caa15c; border-radius:10px;
+      font-weight:bold; cursor:pointer; background: linear-gradient(145deg, #b76e3f, #e4c2a0);
+      color:#fffaf5; font-size:16px; transition:0.4s;
+    }
+    button:hover { background: linear-gradient(145deg, #e4c2a0, #b76e3f); transform: scale(1.05); box-shadow:0 0 20px rgba(202,161,92,0.8); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Analogy Learning</h1>
+    <p id="greeting"></p>
+    <div class="content" id="lesson"></div>
+
+    <div class="nav-buttons">
+      <button onclick="goBack()">⬅ Back</button>
+      <button onclick="goNext()">Next ➡</button>
+    </div>
+  </div>
+
+  <script>
+    const studentData = JSON.parse(localStorage.getItem("studentData") || "{}");
+    const topic = localStorage.getItem("topic")?.toLowerCase() || "unknown topic";
+    document.getElementById("greeting").innerText = `Hello ${studentData.nickname}! Let's learn "${topic}" using analogies.`;
+
+    const lessons = {
+  "algebra": [
+    "Think of a balance scale: 'x' is a hidden weight.",
+    "Adding/subtracting numbers on one side means you must do the same on the other side.",
+    "Solving equations is finding the hidden weight that balances the scale."
+  ],
+  "gravity": [
+    "Imagine Earth as a giant magnet pulling objects toward it.",
+    "Heavier objects feel a stronger pull.",
+    "Planets orbit because of the invisible 'magnetic' pull of the sun."
+  ],
+  "loops": [
+    "Think of a merry-go-round repeating the same path.",
+    "Each turn of the ride is one iteration of the loop.",
+    "You can decide how many rounds to run before stopping."
+  ],
+  "digestive system": [
+    "Imagine a factory processing raw food.",
+    "Mouth chops, stomach mixes, intestines extract the valuable products.",
+    "Waste is like packaging thrown out at the end."
+  ],
+  "nouns": [
+    "Nouns are like labels on jars: each jar holds a person, place, thing, or idea.",
+    "Common nouns are general, proper nouns are specific.",
+    "Using the right label helps everyone know what's inside the jar."
+  ],
+  "freedom movement": [
+    "Imagine people trapped in a maze; leaders are guides showing paths to freedom.",
+    "Every protest is a door unlocked.",
+    "Independence is reaching the open field outside the maze."
+  ]
+};
+
+
+    const lessonSteps = lessons[topic] || ["Sorry, no analogy lesson available for this topic."];
+    document.getElementById("lesson").innerHTML = lessonSteps.map(s => `<p>🪄 ${s}</p>`).join('');
+
+    function goBack() { window.history.back(); }
+    function goNext() { window.location.href = "endPage.html"; }
+  </script>
+</body>
+</html>

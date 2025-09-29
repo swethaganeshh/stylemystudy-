@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Step by Step Learning</title>
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin:0; font-family:'Cinzel', serif;
+      background: linear-gradient(160deg,#d6c6e1,#f3e2f0,#f0e1d8);
+      display:flex; justify-content:center; align-items:center; height:100vh; color:#3b2c35;
+    }
+    .card {
+      background: rgba(255,250,240,0.95); border:4px solid #caa15c;
+      border-radius:15px; padding:40px; width:600px; text-align:center;
+      box-shadow:0 0 40px rgba(202,161,92,0.6);
+    }
+    h1 {
+      font-family:'IM Fell English SC', serif; font-size:36px; margin-bottom:15px;
+      color:#b76e3f; text-shadow:0 0 6px #ffd580;
+    }
+    .content { text-align:left; margin-top:20px; font-size:16px; line-height:1.6; }
+    .nav-buttons { margin-top:30px; display:flex; justify-content:space-between; }
+    button {
+      padding:10px 20px; border:2px solid #caa15c; border-radius:10px;
+      font-weight:bold; cursor:pointer; background: linear-gradient(145deg, #b76e3f, #e4c2a0);
+      color:#fffaf5; font-size:16px; transition:0.4s;
+    }
+    button:hover { background: linear-gradient(145deg, #e4c2a0, #b76e3f); transform: scale(1.05); box-shadow:0 0 20px rgba(202,161,92,0.8); }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Step by Step Learning</h1>
+    <p id="greeting"></p>
+    <div class="content" id="lesson"></div>
+
+    <div class="nav-buttons">
+      <button onclick="goBack()">⬅ Back</button>
+      <button onclick="goNext()">Next ➡</button>
+    </div>
+  </div>
+
+  <script>
+    const studentData = JSON.parse(localStorage.getItem("studentData") || "{}");
+    const topic = localStorage.getItem("topic")?.toLowerCase() || "unknown topic";
+
+    document.getElementById("greeting").innerText = `Hello ${studentData.nickname}! Let's learn "${topic}" step by step.`;
+
+    const lessons = {
+  "algebra": [
+    "Step 1: Understand what a variable is — think of 'x' as an unknown number.",
+    "Step 2: Learn basic operations: addition, subtraction, multiplication, and division with variables.",
+    "Step 3: Solve simple equations like x + 5 = 12."
+  ],
+  "gravity": [
+    "Step 1: Gravity is a force pulling objects toward the Earth.",
+    "Step 2: Learn Newton's law: F = m * g.",
+    "Step 3: Understand examples: why apples fall, how planets orbit."
+  ],
+  "loops": [
+    "Step 1: A loop repeats a set of instructions.",
+    "Step 2: Learn 'for' loops and 'while' loops.",
+    "Step 3: Try coding a loop to print numbers 1 to 5."
+  ],
+  "digestive system": [
+    "Step 1: Food enters through the mouth and travels to the stomach.",
+    "Step 2: Learn the role of stomach, small intestine, and large intestine.",
+    "Step 3: Understand absorption of nutrients and elimination of waste."
+  ],
+  "nouns": [
+    "Step 1: A noun is a name of a person, place, thing, or idea.",
+    "Step 2: Learn common nouns vs proper nouns.",
+    "Step 3: Identify nouns in simple sentences."
+  ],
+  "freedom movement": [
+    "Step 1: Learn the main leaders of the freedom movement.",
+    "Step 2: Understand the key events: protests, movements, and speeches.",
+    "Step 3: Recognize the final achievement: independence."
+  ]
+};
+
+
+    const lessonSteps = lessons[topic] || ["Sorry, no stepwise lesson available for this topic."];
+    document.getElementById("lesson").innerHTML = lessonSteps.map(s => `<p>🪄 ${s}</p>`).join('');
+
+    function goBack() {
+      window.history.back(); // goes back to topic selection page
+    }
+
+    function goNext() {
+      // Redirect to end-of-lesson creative page
+      window.location.href = "endPage.html";
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyMyStyle - Welcome</title>
+<link href="https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Cinzel:wght@700&display=swap" rel="stylesheet">
+<style>
+body { margin:0; font-family:'Cinzel', serif; background: linear-gradient(160deg, #f3e2f0,#d6c6e1,#f0e1d8); display:flex; justify-content:center; align-items:center; height:100vh; color:#3b2c35; }
+.card { background: rgba(255,250,240,0.95); border:4px solid #caa15c; border-radius:15px; padding:40px; width:500px; text-align:center; box-shadow:0 0 40px rgba(202,161,92,0.6); }
+h1 { font-family:'IM Fell English SC', serif; font-size:36px; margin-bottom:20px; color:#b76e3f; text-shadow:0 0 6px #ffd580; }
+label { display:block; margin-bottom:5px; font-weight:bold; text-align:left; }
+input, select { width:100%; padding:10px; margin-bottom:20px; border:2px solid #caa15c; border-radius:8px; font-size:16px; }
+button { padding:14px 20px; border:2px solid #caa15c; border-radius:10px; font-weight:bold; cursor:pointer; background: linear-gradient(145deg, #b76e3f, #e4c2a0); color:#fffaf5; font-size:16px; transition:0.4s; }
+button:hover { background: linear-gradient(145deg, #e4c2a0, #b76e3f); transform: scale(1.05); box-shadow:0 0 20px rgba(202,161,92,0.8); }
+</style>
+</head>
+<body>
+<div class="card">
+<h1>Welcome to StudyMyStyle!</h1>
+<form id="studentForm">
+  <label for="nickname">Nickname:</label>
+  <input type="text" id="nickname" placeholder="e.g. Harry" required>
+
+  <label for="grade">Grade:</label>
+  <select id="grade" required>
+    <option value="">Select grade</option>
+    <option value="1">Grade 1</option><option value="2">Grade 2</option><option value="3">Grade 3</option><option value="4">Grade 4</option>
+    <option value="5">Grade 5</option><option value="6">Grade 6</option><option value="7">Grade 7</option><option value="8">Grade 8</option>
+    <option value="9">Grade 9</option><option value="10">Grade 10</option>
+  </select>
+
+  <label for="subject">Subject:</label>
+  <select id="subject" required>
+    <option value="">Select subject</option>
+    <option value="Maths">Maths</option>
+    <option value="Physics">Physics</option>
+    <option value="Coding">Coding</option>
+    <option value="Biology">Biology</option>
+    <option value="English">English</option>
+    <option value="Social">Social</option>
+  </select>
+
+  <button type="submit">Next</button>
+</form>
+</div>
+
+<script>
+document.getElementById("studentForm").addEventListener("submit", function(e){
+  e.preventDefault();
+  const nickname = document.getElementById("nickname").value.trim();
+  const grade = document.getElementById("grade").value;
+  const subject = document.getElementById("subject").value;
+  if(!nickname||!grade||!subject){ alert("Fill all fields"); return; }
+  localStorage.setItem("studentData", JSON.stringify({nickname, grade, subject}));
+  window.location.href = "frontendpage2.html";
+});
+</script>
+</body>
+</html>
