@@ -35,5 +35,3 @@ flowchart TD
     B --> G[Translation Agent]
     B --> H[Visualization Agent]
     C & D & E & F & G & H --> I[Personalized Explanation]
-
-Offline support for low-connectivity environments
