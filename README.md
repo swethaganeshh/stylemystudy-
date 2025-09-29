@@ -6,7 +6,7 @@ Traditional study material often fails to adapt to diverse learning styles:
 - **Language barriers** and lack of contextual knowledge make learning harder.  
 
 ---
-#MAESTRO AGENT
+## MAESTRO AGENT
 
 ### 1️⃣ Input Agent  
 
@@ -70,6 +70,75 @@ Request Body:
 { "topic": "Loops", "subject": "coding" }
 ```
 Deployed Url -https://maestro-cc8cc268-be67-4eaa-aca8-397ce6b2524f-zcaxlbuauq-uc.a.run.app/
+---
+
+###Knowledge Agent
+
+**Purpose**  
+Enriches explanation with extra facts.
+---
+
+**Endpoints**  
+
+- **POST** `/process`  
+Request Body:  
+```json
+{ "topic": "Gravity" }
+```
+---
+###Knowledge Agent
+
+**Purpose**  
+Enriches explanation with extra facts.
+---
+
+**Endpoints**  
+
+- **POST** `/process`  
+Request Body:  
+```json
+{ "topic": "Gravity" }
+```
+---
+###Translator Agent
+
+**Purpose**  
+Translates text into the learner’s preferred language.
+---
+
+**Endpoints**  
+
+- **POST** `/process`  
+Request Body:  
+```json
+{
+  "text": "Objects fall at the same rate regardless of mass.",
+  "target_language": "es"
+}
+```
+---
+###Visualization Agent
+
+**Purpose**  
+Generates diagrams & flowcharts.
+---
+
+**Endpoints**  
+
+- **POST** `/process`  
+Request Body:  
+```json
+{
+  "topic": "Free Fall",
+  "steps": [
+    "Step 1: Object starts at rest",
+    "Step 2: Gravity pulls downward",
+    "Step 3: Acceleration increases",
+    "Step 4: Object reaches the ground"
+  ]
+}
+
+```
 ---
 
 ## 💡 Solution  
